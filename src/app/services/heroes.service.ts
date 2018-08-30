@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class HeroesService {
 
-  private heroes: any[] = [
+  private heroes: Heroe[] = [
     {
       nombre: "Aquaman",
       bio: "El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.",
@@ -67,4 +67,27 @@ export class HeroesService {
     return this.heroes[idx];
   }
 
+  searchHeroes( text: string): Heroe[] {
+    let heroesArr: Heroe[] = [];
+    text = text.toLowerCase();
+
+    for (let heroe of this.heroes) {
+      let name = heroe.nombre.toLowerCase();
+      if ( name.indexOf(text) >= 0 ) {
+        heroesArr.push( heroe );
+      }
+    }
+
+    return heroesArr;
+  }
+
+}
+
+export interface Heroe {
+  nombre: string;
+  bio: string;
+  img: string;
+  aparicion: string;
+  casa: string;
+  idx?: number;
 }

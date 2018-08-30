@@ -1,3 +1,4 @@
+import { BuscadorComponent } from './components/buscador/buscador.component';
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { AboutComponent } from './components/about/about.component';
@@ -9,6 +10,7 @@ const APP_ROUTES: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'heroe/:id', component: HeroeComponent },
+  { path: 'buscar/:text', component: BuscadorComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
